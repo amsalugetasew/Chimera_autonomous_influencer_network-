@@ -1,69 +1,96 @@
-project: chimera
-version: 0.1
+project_chimera:
+  focus_areas:
+    - Domain Mastery
+    - Environment Security
+    - Future-Proofing
+    - Community Dynamics
+    - Operational Readiness
+    - Software Development Revolution
 
-governance:
-  source_of_truth: specs/_meta.md
-  enforcement:
-    - judge_agent
-    - ci_pipeline
-    - human_in_the_loop
+  strategic_overview:
+    description: "Integration of OpenClaw agents and Moltbook social network for autonomous AI influencer networks, aligned with the software development revolution and productivity tools emphasized by a16z."
 
-agents:
-  planner:
-    role: objective_decomposition
-    inputs:
-      - high_level_goal
-      - specs
-    outputs:
-      - task_list
+  architecture_principles:
+    hierarchical_swarm: Planner-Worker-Judge pattern
+    model_context_protocol: Exclusive interface to external systems
+    agent_skills: Modular skills for tasks
+    social_coordination: Moltbook-based agent collaboration
+    human_in_loop: Confidence-based approval
+    memory_management:
+      short_term: Redis
+      long_term: Weaviate
+    economic_autonomy: Crypto wallets with CFO oversight
 
-  research:
-    role: trend_discovery
-    constraints:
-      - mcp_only_access
-    outputs:
-      - validated_trends
+  system_layers:
+    cognitive_core:
+      - LLM reasoning
+      - Persona identity SOUL.md
+      - RAG memory pipelines
+    skill_execution_layer: OpenClaw skill modules
+    social_coordination_layer: Moltbook agent networks
+    orchestration_governance:
+      - Human Super-Orchestrator
+      - Optimistic Concurrency Control
+      - Judges validation
+    integration_layer:
+      - MCP interface
+      - External systems: [WhatsApp, Discord, Twitter, TikTok, APIs]
+    database_storage:
+      high_velocity_metadata: NoSQL
+      transactional_data: SQL
+    security_environment:
+      - Isolated agent instances
+      - Skill vetting
+      - Reproducible environment: pyproject.toml, MCP Sense
 
-  content:
-    role: content_generation
-    constraints:
-      - no_publish
-      - confidence_required
-    outputs:
-      - draft_content
+  agent_lifecycle:
+    perception: MCP resources
+    planning: Planner decomposition + human approval
+    execution: Worker agents run skills
+    validation: Judges approve and detect anomalies
+    memory_update: Episodic memory Redis, long-term memory Weaviate
 
-  engagement:
-    role: interaction_management
-    constraints:
-      - rate_limited
-      - policy_aware
+  social_protocols:
+    - Skill sharing
+    - Status broadcasting
+    - Task delegation
+    - Authentication and access control
 
-  judge:
-    role: validation_and_governance
-    invariants:
-      - spec_authority
-      - mcp_boundary
-      - confidence_threshold
-      - safety_category
-      - deterministic_decisions
+  environment_setup:
+    - Git repository (main/dev/feature)
+    - Python env: uv, pyproject.toml
+    - MCP Sense IDE connection verified
 
-execution:
-  tools:
-    type: mcp
-    responsibilities:
-      - external_api_calls
-      - publishing
-      - storage_access
+  scalability:
+    - Horizontal agent scaling
+    - Modular skill expansion
+    - Human-in-loop governance
+    - Cloud-native deployment
 
-human_in_loop:
-  triggers:
-    - low_confidence
-    - sensitive_category
-    - spec_violation
+  security_update:
+    - Early adopter caution
+    - Prompt injection risk
+    - Controlled environment required
+    - HITL validation for sensitive actions
 
-observability:
-  telemetry:
-    provider: mcp_sense
-    requirements:
-      - trace_id
-      - replayable_actions
+  community_update:
+    - GitHub stars >100,000
+    - Distributed maintainers
+    - Sponsorship model for sustainability
+    - Lessons for governance and upgrade procedures
+
+  software_revolution:
+    description: "Aligned with the a16z vision: software engineers gain productivity and power, end users benefit from better software, and new startups have historic opportunities. Chimera positions agents and AI automation to be part of this revolution."
+
+  diagram: |
+    graph LR
+      SuperOrchestrator --> ManagerAgents
+      ManagerAgents --> WorkerSwarm
+      WorkerSwarm --> SkillsLayer
+      SkillsLayer --> MCP[Model Context Protocol]
+      MCP --> ExternalSystems[WhatsApp, Discord, APIs]
+      WorkerSwarm --> Judges
+      Judges --> Memory[Redis / Weaviate]
+      WorkerSwarm --> Moltbook
+      Moltbook --> WorkerSwarm
+      Judges --> SuperOrchestrator
