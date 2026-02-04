@@ -1,0 +1,69 @@
+project: chimera
+version: 0.1
+
+governance:
+  source_of_truth: specs/_meta.md
+  enforcement:
+    - judge_agent
+    - ci_pipeline
+    - human_in_the_loop
+
+agents:
+  planner:
+    role: objective_decomposition
+    inputs:
+      - high_level_goal
+      - specs
+    outputs:
+      - task_list
+
+  research:
+    role: trend_discovery
+    constraints:
+      - mcp_only_access
+    outputs:
+      - validated_trends
+
+  content:
+    role: content_generation
+    constraints:
+      - no_publish
+      - confidence_required
+    outputs:
+      - draft_content
+
+  engagement:
+    role: interaction_management
+    constraints:
+      - rate_limited
+      - policy_aware
+
+  judge:
+    role: validation_and_governance
+    invariants:
+      - spec_authority
+      - mcp_boundary
+      - confidence_threshold
+      - safety_category
+      - deterministic_decisions
+
+execution:
+  tools:
+    type: mcp
+    responsibilities:
+      - external_api_calls
+      - publishing
+      - storage_access
+
+human_in_loop:
+  triggers:
+    - low_confidence
+    - sensitive_category
+    - spec_violation
+
+observability:
+  telemetry:
+    provider: mcp_sense
+    requirements:
+      - trace_id
+      - replayable_actions
