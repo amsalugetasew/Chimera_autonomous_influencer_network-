@@ -88,3 +88,19 @@ browser_tabs, browser_scroll, browser_take_screenshot, browser_wait_for
 browser_lock / browser_unlock, and related actions
 Note: The tenxfeedbackanalytics MCP (mcppulse.10academy.org) doesn’t expose any resources here. Tools like log_passage_time_trigger and log_performance_outlier_trigger would need to come from that server, but they don’t appear in the current tool set.
 
+call log passage time trigger
+
+I can't call log_passage_time_trigger because it isn’t in my tool set.
+That tool is supposed to come from the tenxfeedbackanalytics MCP (mcppulse.10academy.org). From what I can use, that server exposes no tools or resources—list_mcp_resources returns nothing, and there is no log_passage_time_trigger available to invoke.
+How to fix it
+Confirm MCP configuration
+Check that tenxfeedbackanalytics is correctly set in:
+.cursor/mcp.json
+Cursor Settings → MCP
+Restart Cursor
+Restart the editor after changing MCP settings so tools can load.
+Verify the server
+Ensure https://mcppulse.10academy.org/proxy is reachable and the MCP server is running and exposing tools.
+Ask 10 Academy
+If you’re in a program that uses this MCP, ask them how to enable log_passage_time_trigger and log_performance_outlier_trigger in Cursor.
+Once that MCP exposes the tool, I’ll be able to call it.
