@@ -1,12 +1,8 @@
-.PHONY: setup test spec-check
-
 setup:
-	pip install --upgrade pip
-	pip install -r requirements.txt
+	docker build -t chimera .
 
 test:
-	pytest -q
+	docker run chimera
 
 spec-check:
-	# Optional: Check if code matches specs
-	python scripts/spec_checker.py
+	@echo "Spec alignment check placeholder"

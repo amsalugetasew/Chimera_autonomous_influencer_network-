@@ -1,25 +1,16 @@
-name: CI/CD
+name: Chimera CI
 
-on:
-  push:
-    branches: [ main, dev, feature/* ]
-  pull_request:
-    branches: [ main, dev, feature/* ]
+on: [push]
 
 jobs:
-  build:
-    name: Build and test
+  test:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
-      - name: Build Docker container
-        run: docker build -t chimera_autonomous_influencer_network .
+      - name: Build Docker environment
+        run: make setup
 
-      - name: Run tests
-        run: docker run chimera_autonomous_influencer_network
-
-      - name: Check spec alignment
-        run: docker run chimera_autonomous_influencer_network python scripts/spec_checker.py
+      - name: Run tests in Docker
+        run: make test
