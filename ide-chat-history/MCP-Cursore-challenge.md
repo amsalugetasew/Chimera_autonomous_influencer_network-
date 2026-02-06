@@ -1,3 +1,15 @@
+## Environment Context (Important)
+
+- ✅ **MCP server is successfully connected and working in VS Code**
+- ❌ MCP connection fails **only in Cursor IDE**
+- ❌ Authentication succeeds in VS Code but tools are not loaded in Cursor
+
+This issue is **editor-specific** and does **not** indicate a problem with the MCP server itself.
+The MCP server is confirmed to be operational when accessed via VS Code.
+
+
+
+
 # MCP Server Connection & Tool Availability Debug Log
 
 ## Issue Summary
